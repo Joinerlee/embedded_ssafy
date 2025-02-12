@@ -16,3 +16,7 @@ def test_sensor():
         GPIO.cleanup()
     finally:
         GPIO.cleanup()
+
+
+if __name__ == "__main__":
+    test_sensor()
