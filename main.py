@@ -1,10 +1,10 @@
-# main.py
+import RPi.GPIO as GPIO
 from hardware.sensors.hc_sr04.sensor import HCSR04
 import time
 
 def test_sensor():
-    sensor = HCSR04()
     try:
+        sensor = HCSR04()
         while True:
             distance = sensor.measure_distance()
             if distance is not None:
@@ -14,6 +14,5 @@ def test_sensor():
             time.sleep(1)
     except KeyboardInterrupt:
         GPIO.cleanup()
-
-if __name__ == "__main__":
-    test_sensor()
+    finally:
+        GPIO.cleanup()
