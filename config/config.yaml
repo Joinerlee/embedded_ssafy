@@ -1,0 +1,23 @@
+hardware:
+  hc_sr04:  # 초음파 센서 (HC-SR04) 설정
+    trigger_pin: 23  # 트리거 핀 (초음파 발사)
+    echo_pin: 24  # 에코 핀 (반사된 초음파 수신)
+
+  hx711:  # 무게 센서 (HX711) 설정
+    dt_pin: 5  # 데이터 핀 (DT)
+    sck_pin: 6  # 클럭 핀 (SCK)
+
+  l298n:  # 모터 드라이버 (L298N) 설정
+    in1: 17  # 모터 방향 제어 핀 1
+    in2: 18  # 모터 방향 제어 핀 2
+    en: 12  # 모터 속도 제어 핀 (PWM 사용 가능)
+
+pid:  # PID 제어 매개변수
+  kp: 1.0  # 비례 계수 (Proportional Gain)
+  ki: 0.1  # 적분 계수 (Integral Gain)
+  kd: 0.05  # 미분 계수 (Derivative Gain)
+
+camera:  # 카메라 설정
+  width: 640  # 카메라 해상도 너비
+  height: 480  # 카메라 해상도 높이
+  framerate: 30  # 초당 프레임 수 (FPS)
