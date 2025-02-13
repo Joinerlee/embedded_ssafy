@@ -1,22 +1,20 @@
-import RPi.GPIO as GPIO
+from gpiozero import LED
 import asyncio
 
-# GPIO 설정 초기화
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(23, GPIO.OUT)
-GPIO.setup(24, GPIO.OUT)
+# LED 설정
+led1 = LED(23)
+led2 = LED(24)
 
 async def control_leds():
     while True:
         print("LED ON")
-        GPIO.output(23, GPIO.HIGH)
-        GPIO.output(24, GPIO.HIGH)
+        led1.on()
+        led2.on()
         await asyncio.sleep(1)
         
         print("LED OFF")
-        GPIO.output(23, GPIO.LOW)
-        GPIO.output(24, GPIO.LOW)
+        led1.off()
+        led2.off()
         await asyncio.sleep(1)
 
 async def main():
@@ -24,8 +22,6 @@ async def main():
         await control_leds()
     except KeyboardInterrupt:
         print("프로그램 종료")
-    finally:
-        GPIO.cleanup()
 
 if __name__ == "__main__":
     asyncio.run(main())
