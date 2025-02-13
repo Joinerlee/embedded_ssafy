@@ -1,3 +1,7 @@
+from hardware.sensors.hc_sr04.sensor import HCSR04
+import time
+import RPi.GPIO as GPIO
+
 def main():
     # 센서 객체 생성
     sensor = HCSR04(trigger_pin=23, echo_pin=24)
