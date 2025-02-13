@@ -1,27 +1,25 @@
 from gpiozero import LED
-import asyncio
+from gpiozero.pins.pigpio import PiGPIOFactory
+import time
+
+# GPIO 핀 팩토리 설정
+factory = PiGPIOFactory()
 
 # LED 설정
-led1 = LED(23)
-led2 = LED(24)
+led1 = LED(23, pin_factory=factory)
+led2 = LED(24, pin_factory=factory)
 
-async def control_leds():
+try:
     while True:
-        print("LED ON")
+        print("ON")
         led1.on()
         led2.on()
-        await asyncio.sleep(1)
+        time.sleep(1)
         
-        print("LED OFF")
+        print("OFF")
         led1.off()
         led2.off()
-        await asyncio.sleep(1)
+        time.sleep(1)
 
-async def main():
-    try:
-        await control_leds()
-    except KeyboardInterrupt:
-        print("프로그램 종료")
-
-if __name__ == "__main__":
-    asyncio.run(main())
+except KeyboardInterrupt:
+    print("프로그램 종료")
