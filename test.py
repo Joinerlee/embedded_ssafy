@@ -1,8 +1,12 @@
 import RPi.GPIO as GPIO
 import time
 
+# 이 줄을 추가
+GPIO.setwarnings(False)
+
 # GPIO 핀 번호 설정 방식 지정 (BCM 또는 BOARD)
 GPIO.setmode(GPIO.BCM)
+
 
 # 사용할 GPIO 핀 번호 정의
 LED_PIN = 18  # GPIO 18번 핀 사용
