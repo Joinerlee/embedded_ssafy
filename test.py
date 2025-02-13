@@ -3,7 +3,8 @@ import RPi.GPIO as GPIO
 
 # GPIO 설정
 GPIO.setmode(GPIO.BCM)
-GPIO.setup([23, 24], GPIO.OUT)
+GPIO.setup(23, GPIO.OUT)  # 개별적으로 설정
+GPIO.setup(24, GPIO.OUT)  # 개별적으로 설정
 
 # LED 제어 코루틴
 async def control_leds():
